@@ -1,0 +1,20 @@
+{
+  "name": "callback_tracker",
+  "version": "0.0.1",
+  "description": "Easily create callbacks that are not resolved until other callbacks have completed.",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "npm run check-modules",
+    "test": "./node_modules/.bin/mocha --ui exports --reporter spec --slow 2000ms --bail ./tests/**/*.test.js",
+    "check-modules": "[ ./package.json -nt ./node_modules ] && $(rm -rf node_modules && npm install) || echo 'Modules are up to date'"
+  },
+  "repository": "",
+  "author": "Sam Shull",
+  "license": "Apache",
+  "dependencies": {
+    "minilog": "0.1.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
