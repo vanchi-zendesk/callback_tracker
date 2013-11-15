@@ -6,7 +6,11 @@
   "scripts": {
     "pretest": "npm run check-modules",
     "test": "./node_modules/.bin/mocha --ui exports --reporter spec --slow 2000ms --bail ./tests/**/*.test.js",
-    "check-modules": "[ ./package.json -nt ./node_modules ] && $(rm -rf node_modules && npm install) || echo 'Modules are up to date'"
+    "check-modules": "[ ./package.json -nt ./node_modules ] && $(rm -rf node_modules && npm install) || echo 'Modules are up to date'",
+    "preset-version": "[ ! -d ./distributable ] && mkdir distributable; npm run check-modules",
+    "set-version": "node -e 'c=require(\"./package.json\");console.log(\"/* version: \"+c.version+\" */\")' > distributable/callback_tracker.js",
+    "prebuild": "npm run set-version",
+    "build": "./node_modules/gluejs/bin/gluejs --include ./index.js --main index.js --global module.exports >> distributable/callback_tracker.js",
   },
   "repository": "https://github.com/samshull/callback_tracker",
   "author": "samshull",
@@ -15,6 +19,7 @@
     "minilog": "0.1.0"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "gluejs": "2.0.7"
   }
 }
