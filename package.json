@@ -8,9 +8,9 @@
     "test": "./node_modules/.bin/mocha --ui exports --reporter spec --slow 2000ms --bail ./tests/**/*.test.js",
     "check-modules": "[ ./package.json -nt ./node_modules ] && $(rm -rf node_modules && npm install) || echo 'Modules are up to date'"
   },
-  "repository": "",
-  "author": "Sam Shull",
-  "license": "Apache",
+  "repository": "https://github.com/samshull/callback_tracker",
+  "author": "samshull",
+  "license": "mit",
   "dependencies": {
     "minilog": "0.1.0"
   },
