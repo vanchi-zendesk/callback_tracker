@@ -1,6 +1,6 @@
 {
   "name": "callback_tracker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Easily create callbacks that are not resolved until other callbacks have completed.",
   "main": "index.js",
   "scripts": {
